@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="global.css">
+<title id='page_title'>?</title>
+<style>
+</style>
+</head>
+<body>
+<div class='section_outter' id='content_section_outter'>
+	<div class='section_inner' id='content_section_inner'>
+	<div class='paraphrase_outter'>
+			<div class='paraphrase_inner'>
+				<div class='h2'>
+				Paraphrase
+				</div>
+				<div class='paraphrase_text' id='paraphrase_text_1'>An optional paraphrase may be added here.</div>
+				<div class='paraphrase_author'><span class='label'>By </span>First Middle Last</div>
+				<div class='paraphrase_date'><span class='label'>Published on </span> Month #, Year</div>
+			</div>
+		</div>
+		<div class='quote_outter'>
+			<div class='quote_inner'>
+				<div class='h2'>Quotes</div>
+				<div id='quote_text_1' class='quote_text'>An optional quote may be added here. Additional quotes from the same course can be placed below too, in their own text_# divs.</div>
+				<div id='quote_text_2' class='quote_text'>This is a second quote.</div>
+			</div>
+		</div>
+		<div class='source_outter'>
+			<div class='source_inner'>
+				<div class='h2'>
+				Source
+				</div>
+				<div class='source_text'><span class='label'>From </span><a id='source_link' class='source_link' href="https://example">https://example</a></div>
+				<div class='source_author'><span class='label'>By </span>First Middle Last</div>
+				<div class='source_publication_date'><span class='label'>Published on </span>Month #, Year</div>
+				<div class='source_access_date'><span class='label'>Accessed on </span>Month #, Year</div>
+			</div>
+		</div>
+		<div class='redirect_outter'>
+			<div class='redirect_inner'>
+				<div class='redirect_text' id='redirect_text'>You will be redirected to the source (<a id='destination_link' class='source_link' href="">?</a>) in <span id="countdown">?</span> seconds. <span id='abort_redirect'>Click here</span> to stay on this page.</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+// Update redirect_text and page title to have destination from source
+function update_redirect_text_destination() {
+	var source_link = document.getElementById('source_link');
+	var destination_link = document.getElementById('destination_link');
+	var page_title = document.getElementById('page_title');
+	if (source_link !== null && source_link.href !== null){
+		destination_link.innerHTML = source_link.href;
+		destination_link.href = source_link.href;
+		page_title.innerHTML = 'Redirect to ' + source_link.href;
+	}
+}
+update_redirect_text_destination();
+
+// Hide paraphrase or quotes if they are empty
+function hide(element_id_to_check, parent_element_class) {
+	var element_to_check = document.getElementById(element_id_to_check);
+	if (element_to_check && element_to_check.innerHTML.trim() === ''){
+		const elements = document.querySelectorAll(parent_element_class);
+		elements.forEach(element => {
+      	element.style.display = 'none';
+    	});
+	}
+}
+hide('paraphrase_text_1', '.paraphrase_outter');
+hide('quote_text_1', '.quote_outter');
+
+// Redirect the user to the source after 10 seconds.
+function redirect_user(seconds) {
+    const countdown = document.getElementById("countdown");
+    const source_link = document.getElementById("source_link");
+    const source_link_value = source_link.href;
+    let seconds_value = seconds;
+    let switch_abort = false;
+    countdown.textContent = `${seconds_value}`;
+    const interval = setInterval(() => {
+    	if (switch_abort === true) {
+          clearInterval(interval);
+          return;
+      }
+      seconds_value--;
+      countdown.textContent = `${seconds_value}`;
+      if (seconds_value <= 0) {
+          clearInterval(interval);
+          window.location.href = source_link_value;
+      }
+    }, 1000);
+    const abort_redirect = document.getElementById("abort_redirect");
+    abort_redirect.addEventListener("click", () => {
+        clearInterval(interval);
+        switch_abort = true;
+        document.getElementById("redirect_text").innerHTML = `You've chosen to stay on this page. You can still visit the source by <a id='destination_link' class='source_link' href='${source_link_value}'>clicking here</a>, or on the source link provided above.`;
+    });
+}
+document.addEventListener("DOMContentLoaded", function () {
+    redirect_user(15);
+});
+</script>
+
+</body>
+</html>

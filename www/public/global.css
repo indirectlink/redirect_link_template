@@ -1,0 +1,150 @@
+body {
+	font-family: sans-serif;
+	background-color: #FBFBFB;
+	background-image: url("pattern_2.png");
+	background-repeat: repeat;
+	margin: 0px;
+}
+a:link {
+	text-decoration: none;
+	color: #0028ff;
+	font-family: sans-serif;
+	letter-spacing: -0.025rem;
+	font-weight: 200;
+}
+a:visited {
+	text-decoration: none;
+	color: #0028ff;
+}
+a:hover {
+	text-decoration: none;
+	color: #8195ff;
+}
+a:active {
+	text-decoration: none;
+	color: #0028ff;
+}
+.section_outter {
+	min-width: 100%;
+	max-width: 100%;
+}
+.section_inner {
+	min-width: 90%;
+	max-width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 25px;
+}
+@media only screen and (orientation: landscape) {
+	.section_inner {
+		max-width: 1024px;
+		min-width: unset;
+	}
+}
+
+.h2 {
+	font-weight: bold;
+	font-size: 22px;
+	text-align: left;
+	display: block;
+}
+.label {
+	font-weight: bold;
+	font-size: 16px;
+	text-align: left;
+}
+
+.paraphrase_outter {
+	background-color: #FFFFFF;
+	margin-bottom: 35px;
+}
+.paraphrase_inner {
+	margin: 5px;
+}
+.paraphrase_text {
+	margin: 10px;
+	padding: 5px;
+	border-color: #e3e399;
+	border-style: solid;
+	border-width: 10px;
+}
+.paraphrase_text:before {
+  content: "";
+}
+.paraphrase_text:after {
+  content: "";
+}
+.paraphrase_author {
+	font-size: 16px;
+}
+.paraphrase_date {
+	font-size: 16px;
+}
+
+.quote_outter {
+	background-color: #FFFFFF;
+	margin-bottom: 35px;
+}
+.quote_inner {
+	margin: 5px;
+}
+.quote_text {
+	background-color: #FFFFFF;
+	margin: 10px;
+	padding: 5px;
+	border-left-color: purple;
+	border-left-style: solid;
+	border-left-width: 10px;
+}
+.quote_text:before {
+  content: '"';
+}
+.quote_text:after {
+  content: '"';
+}
+
+.source_outter {
+	background-color: #FFFFFF;
+	margin-bottom: 35px;
+}
+.source_inner {
+	margin: 5px;
+}
+.source_text {
+	font-size: 16px;
+}
+.source_author {
+	font-size: 16px;
+}
+.source_publication_date {
+	font-size: 16px;
+}
+
+.source_link:link {
+	text-decoration: none;
+	color: #222991;
+}
+.source_link:visited {
+	text-decoration: none;
+	color: #222991;
+}
+.source_link:hover {
+	text-decoration: none;
+	color: #464db9;
+}
+.source_link:active {
+	text-decoration: none;
+	color: #222991;
+}
+.redirect_outter {
+	background-color: #FFFFFF;
+}
+.redirect_inner {
+	margin: 5px;
+}
+#countdown {
+	color: #666666;
+}
+#abort_redirect {
+	font-weight: bolder;
+}
