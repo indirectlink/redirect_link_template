@@ -1,33 +1,19 @@
 # About
 
-NAME: Ritchey Redirect Link Template
+NAME: Redirect Link Template
 IMPLEMENTATION: 1
 VERSION: 1
-LONG IDENTIFIER: Ritchey Redirect Link Template i1 v1
-SHORT IDENTIFIER: RRLTi1v1
 AUTHOR: James Daniel Marrs Ritchey
 
 ## Overview
 
-Ritchey Redirect Link Template is an HTML page template for redirecting to another URL.
+Redirect Link Template is an HTML page template for redirecting to another URL.
 
 ## Licensing
 
 This project is hereby licensed under the Ritchey Permissive License v19.
 
-## History
-
-Releases:
-- Project started January 3, 2025.
-- Version 1 completed January 4, 2025.
-
-Highlighted Changes:
-- N/A
-
 ## Notes
 
-Technical:
-- Redirection is done using Javascript, and certain page components depend on Javascript as well. If the user doesn't have these enabled, redirection won't work, and certain aspects will be improperly filled in.
-
 Other:
-- This template is not a complete website. It is just a basic redirection page.
+- This project is forked from Ritchey Redirect Link Template i1 v1.
